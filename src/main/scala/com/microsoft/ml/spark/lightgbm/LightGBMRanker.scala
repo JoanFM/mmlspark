@@ -86,7 +86,11 @@ class LightGBMRanker(override val uid: String)
       case None => dataset
       case Some(groupingCol) => {
         val df = dataset.repartition(new Column(groupingCol)).cache()
+<<<<<<< HEAD
         //force repartition
+=======
+        //force materialization
+>>>>>>> 8ba8062... LightGBMRanker should repartition by grouping column
         df.count
         df
       }
